@@ -1,29 +1,38 @@
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+function LoginScreen() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Verifique se o nome de usuário e a senha estão corretos
+    // Redirecione o usuário ou exiba uma mensagem de erro
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label>
+        Nome:
+        <input
+          type="text"
+          value={username}
+          onChange={event => setUsername(event.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Senha:
+        <input
+          type="password"
+          value={password}
+          onChange={event => setPassword(event.target.value)}
+        />
+      </label>
+      <br />
+      <input type="submit" value="Cadastrar" />
+    </form>
   );
 }
 
-export default App;
+export default LoginScreen;
